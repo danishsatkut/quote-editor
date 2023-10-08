@@ -100,6 +100,7 @@ GEM
     debug (1.8.0)
       irb (>= 1.5.0)
       reline (>= 0.3.1)
+    docile (1.4.0)
     drb (2.1.1)
       ruby2_keywords
     error_highlight (0.5.1)
@@ -129,6 +130,9 @@ GEM
     matrix (0.4.2)
     mini_mime (1.1.5)
     minitest (5.20.0)
+    minitest-junit (1.1.0)
+      builder (~> 3.2)
+      minitest (~> 5.11)
     msgpack (1.7.2)
     mutex_m (0.1.2)
     net-imap (0.4.0)
@@ -204,6 +208,12 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
+    simplecov (0.22.0)
+      docile (~> 1.1)
+      simplecov-html (~> 0.11)
+      simplecov_json_formatter (~> 0.1)
+    simplecov-html (0.12.3)
+    simplecov_json_formatter (0.1.4)
     sprockets (4.2.1)
       concurrent-ruby (~> 1.0)
       rack (>= 2.2.4, < 4)
@@ -247,11 +257,13 @@ DEPENDENCIES
   error_highlight (>= 0.4.0)
   jbuilder
   jsbundling-rails
+  minitest-junit
   pg (~> 1.1)
   puma (>= 5.0)
   rails (~> 7.1.0)
   redis (>= 4.0.1)
   selenium-webdriver
+  simplecov
   sprockets-rails
   stimulus-rails
   turbo-rails
