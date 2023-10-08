@@ -23,10 +23,6 @@ Layout/HashAlignment:
 Layout/LineLength:
   Max: 120
 
-Lint/AmbiguousBlockAssociation:
-  Exclude:
-    - 'spec/**/*'
-
 Metrics/ClassLength:
   Exclude:
     - 'app/controllers/**/*'

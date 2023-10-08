@@ -14,7 +14,7 @@ require 'rails'
 ).each do |railtie|
   begin
     require railtie
-  rescue LoadError
+  rescue LoadError # rubocop:disable Lint/SuppressedException
   end
 end
 
