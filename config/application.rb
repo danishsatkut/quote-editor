@@ -14,10 +14,8 @@ require 'rails'
   action_cable/engine
   rails/test_unit/railtie
 ].each do |railtie|
-  begin
-    require railtie
-  rescue LoadError # rubocop:disable Lint/SuppressedException
-  end
+  require railtie
+rescue LoadError # rubocop:disable Lint/SuppressedException
 end
 
 # Require the gems listed in Gemfile, including any gems
