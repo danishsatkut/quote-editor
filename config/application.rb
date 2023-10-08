@@ -1,6 +1,6 @@
-require_relative "boot"
+require_relative 'boot'
 
-require "rails"
+require 'rails'
 
 %w(
   active_record/railtie
