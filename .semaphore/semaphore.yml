@@ -35,6 +35,9 @@ blocks:
           - cache store
           - sem-service start postgres 14 --username=semaphore --db=quote_editor_test
           - 'bin/rails db:schema:load --trace'
+          - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+          - chmod +x ./cc-test-reporter
+          - ./cc-test-reporter before-build
       jobs:
         - name: Test
           commands:
@@ -43,6 +46,12 @@ blocks:
         always:
           commands:
             - '[[ -f test_results.xml ]] && test-results publish test_results.xml'
+        on_pass:
+          commands:
+            - ./cc-test-reporter after-build --exit-code 0
+        on_fail:
+          commands:
+            - ./cc-test-reporter after-build --exit-code 1
       secrets:
         - name: Sora Web
 after_pipeline:
