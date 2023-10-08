@@ -23,6 +23,10 @@ Layout/HashAlignment:
 Layout/LineLength:
   Max: 120
 
+Metrics/AbcSize:
+  Exclude:
+    - db/migrate/*.rb
+
 Metrics/ClassLength:
   Exclude:
     - 'app/controllers/**/*'
