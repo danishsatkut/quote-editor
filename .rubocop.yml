@@ -1,1 +1,59 @@
 inherit_from: .rubocop_todo.yml
+
+require:
+  - rubocop-rails
+  - rubocop-minitest
+  - rubocop-capybara
+
+AllCops:
+  TargetRubyVersion: 3.1.4
+  TargetRailsVersion: 7.1
+  Exclude:
+    - db/schema.rb
+    - config/boot.rb
+    - bin/*
+    - node_modules/**/*
+    - vendor/**/*
+  DisplayCopNames: true
+  NewCops: enable
+
+Layout/HashAlignment:
+  EnforcedHashRocketStyle: table
+
+Layout/LineLength:
+  Max: 120
+
+Lint/AmbiguousBlockAssociation:
+  Exclude:
+    - 'spec/**/*'
+
+Metrics/ClassLength:
+  Exclude:
+    - 'app/controllers/**/*'
+
+Rails/FilePath:
+  Exclude:
+    - 'spec/rails_helper.rb'
+
+Style/BlockComments:
+  Exclude:
+    - 'spec/spec_helper.rb'
+
+Style/Documentation:
+  Enabled: false
+
+Style/EmptyElse:
+  EnforcedStyle: empty
+
+Style/FormatStringToken:
+  EnforcedStyle: template
+
+Style/RedundantFetchBlock:
+  Exclude:
+    - 'config/puma.rb'
+
+Style/SymbolArray:
+  EnforcedStyle: brackets
+
+Style/WordArray:
+  EnforcedStyle: percent
