@@ -1,8 +1,10 @@
-require_relative "boot"
+# frozen_string_literal: true
 
-require "rails"
+require_relative 'boot'
 
-%w(
+require 'rails'
+
+%w[
   active_record/railtie
   active_storage/engine
   action_controller/railtie
@@ -11,11 +13,9 @@ require "rails"
   active_job/railtie
   action_cable/engine
   rails/test_unit/railtie
-).each do |railtie|
-  begin
-    require railtie
-  rescue LoadError
-  end
+].each do |railtie|
+  require railtie
+rescue LoadError # rubocop:disable Lint/SuppressedException
 end
 
 # Require the gems listed in Gemfile, including any gems
@@ -30,7 +30,7 @@ module QuoteEditor
     # Please, add to the `ignore` list any other `lib` subdirectories that do
     # not contain `.rb` files, or that should not be reloaded or eager loaded.
     # Common ones are `templates`, `generators`, or `middleware`, for example.
-    config.autoload_lib(ignore: %w(assets tasks))
+    config.autoload_lib(ignore: %w[assets tasks])
 
     # Configuration for the application, engines, and railties goes here.
     #

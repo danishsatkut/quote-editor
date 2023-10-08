@@ -41,6 +41,7 @@ blocks:
       jobs:
         - name: Test
           commands:
+            - bundle exec rubocop
             - bundle exec rails test --junit --junit-filename=test_results.xml
       epilogue:
         always:
