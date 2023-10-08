@@ -8,14 +8,6 @@
 
 # Offense count: 2
 # This cop supports safe autocorrection (--autocorrect).
-# Configuration parameters: EnforcedStyle, IndentationWidth.
-# SupportedStyles: aligned, indented, indented_relative_to_receiver
-Layout/MultilineMethodCallIndentation:
-  Exclude:
-    - 'config/environments/production.rb'
-
-# Offense count: 2
-# This cop supports safe autocorrection (--autocorrect).
 # Configuration parameters: AllowInHeredoc.
 Layout/TrailingWhitespace:
   Exclude:
@@ -50,12 +42,6 @@ Metrics/MethodLength:
 Style/FrozenStringLiteralComment:
   Enabled: false
 
-# Offense count: 1
-# This cop supports unsafe autocorrection (--autocorrect-all).
-Style/GlobalStdStream:
-  Exclude:
-    - 'config/environments/production.rb'
-
 # Offense count: 2
 # This cop supports safe autocorrection (--autocorrect).
 # Configuration parameters: PreferredDelimiters.
@@ -68,12 +54,6 @@ Style/PercentLiteralDelimiters:
 Style/RedundantBegin:
   Exclude:
     - 'config/application.rb'
-
-# Offense count: 1
-# This cop supports safe autocorrection (--autocorrect).
-Style/RedundantConstantBase:
-  Exclude:
-    - 'config/environments/production.rb'
 
 # Offense count: 2
 # This cop supports safe autocorrection (--autocorrect).
