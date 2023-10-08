@@ -1,0 +1,53 @@
+version: v1.0
+name: Run Tests
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu2004
+execution_time_limit:
+  minutes: 30
+fail_fast:
+  stop:
+    when: branch != 'main'
+  cancel:
+    when: branch = 'main'
+auto_cancel:
+  running:
+    when: branch != 'main'
+  queued:
+    when: branch = 'main'
+blocks:
+  - name: Prepare and Run
+    task:
+      env_vars:
+        - name: RAILS_ENV
+          value: test
+        - name: COVERAGE
+          value: 'true'
+      prologue:
+        commands:
+          - checkout
+          - cache restore
+          - sem-version ruby 3.1.4
+          - bundle config path 'vendor/bundle'
+          - bundle check || bundle install --deployment
+          - yarn install --cache-folder $HOME/.cache/yarn
+          - cache store
+          - sem-service start postgres 14 --username=semaphore --db=quote_editor_test
+          - 'bin/rails db:schema:load --trace'
+      jobs:
+        - name: Test
+          commands:
+            - bundle exec rails test --junit --junit-filename=test_results.xml
+      epilogue:
+        always:
+          commands:
+            - '[[ -f test_results.xml ]] && test-results publish test_results.xml'
+      secrets:
+        - name: Sora Web
+after_pipeline:
+  task:
+    jobs:
+      - name: Publish Test Results
+        commands:
+          - test-results gen-pipeline-report
