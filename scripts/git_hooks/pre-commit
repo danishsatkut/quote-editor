@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+set -eo pipefail
+
+if [ "$(uname)" == "Darwin" ]; then
+        COMMITTER_LOCATION="bin/macos/committer"
+elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
+        COMMITTER_LOCATION="bin/linux/committer"
+else
+        echo "Please compile a binary for your OS from https://github.com/Gusto/committer"
+fi
+
+function run_committer() {
+  # capture the error code from the committer utility
+  COMMITTER_EXIT_CODE=0
+  if [[ "$REFLOW_COMMITTER_AUTOFIX" ]]; then
+    $COMMITTER_LOCATION --fix || COMMITTER_EXIT_CODE=$?
+  else
+    $COMMITTER_LOCATION || COMMITTER_EXIT_CODE=$?
+  fi
+}
+
+run_committer
+
+# Exit code tells git to pass or fail the pre-commit check
+exit $COMMITTER_EXIT_CODE
