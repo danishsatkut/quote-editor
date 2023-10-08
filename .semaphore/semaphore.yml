@@ -53,7 +53,7 @@ blocks:
           commands:
             - ./cc-test-reporter after-build --exit-code 1
       secrets:
-        - name: Sora Web
+        - name: Quote Editor
 after_pipeline:
   task:
     jobs:
