@@ -34,7 +34,7 @@ blocks:
           - yarn install --cache-folder $HOME/.cache/yarn
           - cache store
           - sem-service start postgres 14 --username=semaphore --db=quote_editor_test
-          - 'bin/rails db:schema:load --trace'
+          - 'bundle exec rails db:schema:load --trace'
           - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
           - chmod +x ./cc-test-reporter
           - ./cc-test-reporter before-build
