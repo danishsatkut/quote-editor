@@ -38,15 +38,17 @@ blocks:
           - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
           - chmod +x ./cc-test-reporter
           - ./cc-test-reporter before-build
+          - mkdir -p test_results
       jobs:
         - name: Test
           commands:
             - bundle exec rubocop
-            - bundle exec rails test --junit --junit-filename=test_results.xml
+            - bundle exec rails test --defer-output --junit --junit-filename=test_results/minitest.xml
+            - bundle exec rails test:system --defer-output --junit --junit-filename=test_results/system_tests.xml
       epilogue:
         always:
           commands:
-            - '[[ -f test_results.xml ]] && test-results publish test_results.xml'
+            - '[[ -f test_results ]] && test-results publish test_results'
         on_pass:
           commands:
             - ./cc-test-reporter after-build --exit-code 0
