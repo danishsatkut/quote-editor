@@ -1,15 +1,11 @@
 <main class="container">
-  <%= turbo_frame_tag "header" do %>
-    <div class="header">
-      <h1>Quotes</h1>
-      <%= link_to "New quote",
-                  new_quote_path,
-                  class: "btn btn--primary",
-                  data: { turbo_frame: "_top" } %>
-    </div>
-  <% end %>
+  <div class="header">
+    <h1>Quotes</h1>
+    <%= link_to "New quote",
+                new_quote_path,
+                class: "btn btn--primary",
+                data: { turbo_frame: "_top" } %>
+  </div>
 
-  <%= turbo_frame_tag "content" do %>
-    <%= render @quotes %>
-  <% end %>
+  <%= render @quotes %>
 </main>
