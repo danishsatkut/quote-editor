@@ -1,24 +1,9 @@
-# README
+# Quotes Editor
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Sample application for Hotwire with Rails 7.1
 
-Things you may want to cover:
+[![Build Status](https://danishsatkut.semaphoreci.com/badges/quote-editor/branches/main.svg?style=shields)](https://danishsatkut.semaphoreci.com/projects/quote-editor)
 
-* Ruby version
+[![Maintainability](https://api.codeclimate.com/v1/badges/72c2a1dec8b52d5156aa/maintainability)](https://codeclimate.com/github/danishsatkut/quote-editor/maintainability)
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+[![Test Coverage](https://api.codeclimate.com/v1/badges/72c2a1dec8b52d5156aa/test_coverage)](https://codeclimate.com/github/danishsatkut/quote-editor/test_coverage)
