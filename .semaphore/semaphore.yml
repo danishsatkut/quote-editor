@@ -48,7 +48,7 @@ blocks:
       epilogue:
         always:
           commands:
-            - '[[ -f test_results ]] && test-results publish test_results'
+            - '[[ -d test_results ]] && test-results publish test_results'
         on_pass:
           commands:
             - ./cc-test-reporter after-build --exit-code 0
