@@ -15,7 +15,7 @@ class QuotesTest < ApplicationSystemTestCase
 
     # When we click on the link with the text "New quote"
     # we expect to land on a page with the title "New quote"
-    click_button 'New quote'
+    click_link 'New quote'
     assert_selector 'h1', text: 'New quote'
 
     # When we fill in the name input with "Capybara quote"
@@ -40,7 +40,7 @@ class QuotesTest < ApplicationSystemTestCase
     visit quotes_path
     assert_selector 'h1', text: 'Quotes'
 
-    click_button 'Edit', match: :first
+    click_link 'Edit', match: :first
     assert_selector 'h1', text: 'Edit quote'
 
     fill_in 'Name', with: 'Updated quote'
