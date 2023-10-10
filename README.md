@@ -1,4 +1,4 @@
-# Quotes Editor
+# Quote Editor
 
 Sample application for Hotwire with Rails 7.1
 
