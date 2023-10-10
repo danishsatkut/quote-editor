@@ -38,13 +38,13 @@ Metrics/ClassLength:
 Metrics/MethodLength:
   Max: 50
 
-Rails/FilePath:
+Minitest/EmptyLineBeforeAssertionMethods:
   Exclude:
-    - 'spec/rails_helper.rb'
+    - 'test/system/**/*.rb'
 
-Style/BlockComments:
+Minitest/MultipleAssertions:
   Exclude:
-    - 'spec/spec_helper.rb'
+    - 'test/system/**/*.rb'
 
 Style/Documentation:
   Enabled: false
